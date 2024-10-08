@@ -1,0 +1,49 @@
+<div class="container">
+    <h1>Employee Management</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>City</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.id }}</td>
+  
+          <!-- Make these fields editable based on selectedEmployee.id -->
+          <td>
+            <input *ngIf="selectedEmployee?.id === employee.id" [(ngModel)]="employee.empName" />
+            <span *ngIf="selectedEmployee?.id !== employee.id">{{ employee.empName }}</span>
+          </td>
+  
+          <td>
+            <input *ngIf="selectedEmployee?.id === employee.id" type="number" [(ngModel)]="employee.empAge" />
+            <span *ngIf="selectedEmployee?.id !== employee.id">{{ employee.empAge }}</span>
+          </td>
+  
+          <td>{{ employee.empGender }}</td>
+  
+          <td>
+            <input *ngIf="selectedEmployee?.id === employee.id" [(ngModel)]="employee.empCity" />
+            <span *ngIf="selectedEmployee?.id !== employee.id">{{ employee.empCity }}</span>
+          </td>
+  
+          <td>{{ employee.role }}</td>
+  
+          <!-- Action buttons -->
+          <td>
+            <button *ngIf="selectedEmployee?.id === employee.id" (click)="saveChanges(employee)">Save Changes</button>
+            <button *ngIf="selectedEmployee?.id !== employee.id" (click)="editEmployee(employee)">Edit</button>&nbsp;&nbsp;
+            <button (click)="deleteEmployee(employee.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

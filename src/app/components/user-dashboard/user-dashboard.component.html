@@ -1,0 +1,37 @@
+<!-- user-dashboard.component.html -->
+ 
+<div class="container">
+    <div class="header">
+        <h1>Employee Dashboard</h1>
+    </div>
+    <div *ngIf="employee" class="profile">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-Z25aOD1KWgPXJyUdl0BTf_3du8oqoe0FOw&s" alt="Profile Picture">
+        <div class="profile-info">
+            <h2>Welcome, {{ employee.empName }}!</h2>
+            <p>Role: {{ employee.role }}</p>
+            <a routerLink="/editProfile/{{ employee.id }}" class="edit-profile-link">Edit Profile</a>
+        </div>
+    </div>
+    <div class="dashboard-sections">
+        <div class="section">
+            <h3>Recent Activity</h3>
+            <ul>
+                <li>Logged in at {{ today | date:'medium' }}</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>Upcoming Events</h3>
+            <ul>
+                <li>Meeting with HR - Aug 15, 2024</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>Statistics</h3>
+            <p>Tasks Completed: 10/15</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 YourCompany. All rights reserved.</p>
+    </div>
+
+</div>

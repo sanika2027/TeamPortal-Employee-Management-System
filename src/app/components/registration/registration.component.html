@@ -1,0 +1,62 @@
+<div class="container">
+    <h2 style="color: darkgreen;">Employee Registration Form</h2>
+    <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+        <div class="form-group">
+            <label for="emp_id">I'D:</label>
+            <input type="text" id="emp_id" name="emp_id" placeholder="Employee I'D" [(ngModel)]="employee.empId"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="emp_name">Name:</label>
+            <input type="text" id="emp_name" name="emp_name" placeholder="Employee Name" [(ngModel)]="employee.empName"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="emp_age">Age:</label>
+            <input type="number" id="emp_age" name="emp_age" placeholder="Employee Age" [(ngModel)]="employee.empAge"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="emp_gender">Gender:</label><br>
+            <div class="radio-group">
+                <input type="radio" id="emp_gender_male" name="emp_gender" value="Male"
+                    [(ngModel)]="employee.empGender"> Male
+                <input type="radio" id="emp_gender_female" name="emp_gender" value="Female"
+                    [(ngModel)]="employee.empGender"> Female
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="emp_city">City:</label>
+            <select id="emp_city" name="emp_city" [(ngModel)]="employee.empCity" required>
+                <option>Select</option>
+                <option>Pune</option>
+                <option>Nagpur</option>
+                <option>Nashik</option>
+                <option>Ahemdabad</option>
+                <option>Jaipur</option>
+                <option>Kolkata</option>
+                <option>Banguluru</option>
+                <option>Gujarat</option>
+                <option>Mumbai</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="role">Role:</label>
+            <select id="role" name="role" [(ngModel)]="employee.role" required>
+                <option>Select</option>
+                <option value="Admin">Admin</option>
+                <option value="User">Employee</option>
+            </select>
+        </div>
+        <div class="form-group full-width">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Create Password"
+                [(ngModel)]="employee.password" required>
+        </div>
+        <input type="submit" value="Register">
+        <input type="reset" value="Reset">
+    </form>
+    <div class="footer">
+        <p>Already have an account? Please click here to <a routerLink="/login">Login</a></p>
+    </div>
+</div>
